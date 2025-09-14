@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dev;
+package uk.gov.hmcts.reform.dev.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import uk.gov.hmcts.reform.dev.dto.CaseDto;
 import uk.gov.hmcts.reform.dev.models.CaseDetails;
 import uk.gov.hmcts.reform.dev.repository.CaseRepository;
-import uk.gov.hmcts.reform.dev.services.CaseService;
 
 import java.time.LocalDateTime;
 import java.util.Collections;

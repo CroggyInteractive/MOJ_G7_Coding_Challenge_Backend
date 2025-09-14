@@ -1,4 +1,4 @@
-package uk.gov.hmcts.reform.dev.controller;
+package uk.gov.hmcts.reform.dev.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import uk.gov.hmcts.reform.dev.controllers.CaseController;
 import uk.gov.hmcts.reform.dev.dto.CaseDto;
 import uk.gov.hmcts.reform.dev.services.CaseService;
 
