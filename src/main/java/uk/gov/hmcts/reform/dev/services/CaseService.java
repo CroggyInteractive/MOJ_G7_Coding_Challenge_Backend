@@ -49,7 +49,7 @@ public class CaseService {
         return mapToDTO(updatedCase);
     }
 
-    private CaseDto mapToDTO(CaseDetails caseDetails){
+    private CaseDto mapToDTO(CaseDetails caseDetails) {
         return CaseDto.builder()
             .id(caseDetails.getId())
             .caseNumber(caseDetails.getCaseNumber())
@@ -60,7 +60,7 @@ public class CaseService {
             .build();
     }
 
-    private CaseDetails mapDtoToModel(CaseDto caseDto){
+    private CaseDetails mapDtoToModel(CaseDto caseDto) {
         return CaseDetails.builder()
             .caseNumber(caseDto.getCaseNumber())
             .title(caseDto.getTitle())

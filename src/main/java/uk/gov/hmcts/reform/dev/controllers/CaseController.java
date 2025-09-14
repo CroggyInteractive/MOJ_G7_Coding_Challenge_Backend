@@ -13,7 +13,6 @@ import uk.gov.hmcts.reform.dev.services.CaseService;
 import uk.gov.hmcts.reform.dev.models.ExampleCase;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -45,16 +44,15 @@ public class CaseController {
     @GetMapping(value = "/get-case/{id}")
     public ResponseEntity<CaseDto> getCase(@PathVariable long id) {
         log.info("Getting case with id {}", id);
-        Optional<CaseDto> caseDtoResponse;
 
-        try {
-            caseDtoResponse = caseService.getCaseById(id);
-            log.info("Found case with id {}", id);
-        } catch (Exception ex) {
-            // I would normally writee a custom exception here
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(caseDtoResponse.get());
+        return caseService.getCaseById(id)
+                .map(caseDto -> {
+                    log.info("Found case with id {}", id);
+                    return ResponseEntity.ok(caseDto);
+                })
+                .orElseGet(() -> {
+                    log.warn("Case with id {} not found", id);
+                    return ResponseEntity.notFound().build();
+                });
     }
 }
